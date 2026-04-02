@@ -1,0 +1,223 @@
+/* PRODUCTS */
+/* contenedor principal de la sección de productos */
+.products {
+    padding: 30px;
+}
+
+/* PRODUCTS TITULO */
+/* título de la sección */
+.products__title {
+    margin-bottom: 20px;
+    font-weight: 500;
+}
+
+/* PRODUCTS GRID */
+/* grid donde se muestran las tarjetas de juegos */
+.products__grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 18px;
+}
+
+/* CARD */
+/* tarjeta individual del juego */
+.card {
+    background: #2c1a6b;
+    border-radius: 8px;
+    overflow: hidden;
+    cursor: pointer;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeUp 0.4s ease forwards;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* CARD HOVER */
+/* efecto visual al pasar el mouse */
+.card:hover {
+    transform: translateY(-6px);
+    box-shadow:
+        0 10px 25px rgba(0,0,0,0.4),
+        0 0 10px rgba(0,212,166,0.15);
+}
+
+/* CARD IMAGEN */
+/* contenedor de la imagen */
+.card__image {
+    position: relative;
+    overflow: hidden;
+}
+
+/* IMAGEN DEL JUEGO */
+.card__image img {
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+/* ZOOM IMAGEN HOVER */
+.card:hover .card__image img {
+    transform: scale(1.05);
+}
+
+/* PLATAFORMA */
+/* etiqueta de consola o plataforma */
+.card__platform {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 6px 10px;
+    font-size: 0.75rem;
+    background: rgba(0, 0, 0, 0.65);
+}
+
+/* CARD BODY */
+/* contenedor del texto de la tarjeta */
+.card__body {
+    padding: 10px;
+}
+
+/* TITULO DEL JUEGO */
+.card__title {
+    font-size: 0.82rem;
+    margin-bottom: 6px;
+}
+
+/* REGION DEL JUEGO */
+.card__region {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #00d4a6;
+    margin-bottom: 6px;
+}
+
+/* PRECIO */
+.card__price {
+    font-size: 1.05rem;
+    font-weight: 700;
+}
+
+/* BOTON AGREGAR AL CARRITO */
+.card__button {
+    margin-top: 10px;
+    width: 100%;
+    padding: 8px;
+    border: none;
+    border-radius: 6px;
+    background: #ff4d6d;
+    color: #fff;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+/* BOTON HOVER */
+.card__button:hover {
+    background: #e63e5c;
+    transform: scale(1.03);
+}
+
+/* BOTON PRODUCTO AGREGADO */
+/* cambia color cuando el juego ya está en el carrito */
+.card__button--added {
+    background: #00d4a6 !important;
+    color: #1a103d;
+}
+
+/* BOTON VER MAS */
+/* contenedor del botón */
+.products__actions {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+/* BOTON VER MAS */
+.products__button {
+    padding: 14px 40px;
+    background: rgba(255,255,255,0.05);
+    border: none;
+    border-radius: 10px;
+    color: #ccc;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+/* BOTON VER MAS HOVER */
+.products__button:hover {
+    background: rgba(255,255,255,0.1);
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+/* RESPONSIVE */
+/* ajustes para tablets */
+@media (max-width: 1024px) {
+    .products__grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* RESPONSIVE */
+/* ajustes para móviles */
+@media (max-width: 600px) {
+    .products__grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+    .products__button {
+        width: 100%;
+    }
+}
+
+/* ANIMACION CARDS */
+/* animación al aparecer las tarjetas */
+@keyframes fadeUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* CARD OCULTA */
+/* usada cuando se filtran productos */
+.card--hide {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.25s ease;
+}
+
+/* DELAY ANIMACION */
+/* efecto cascada al cargar cards */
+.card:nth-child(1) { animation-delay: 0.05s; }
+.card:nth-child(2) { animation-delay: 0.1s; }
+.card:nth-child(3) { animation-delay: 0.15s; }
+.card:nth-child(4) { animation-delay: 0.2s; }
+.card:nth-child(5) { animation-delay: 0.25s; }
+
+/* SKELETON LOADING */
+/* animación mientras cargan productos */
+.skeleton {
+    height: 100%;
+    border-radius: 8px;
+    background: linear-gradient(
+        90deg,
+        #2c1a6b 25%,
+        #3a2380 50%,
+        #2c1a6b 75%
+    );
+    background-size: 200% 100%;
+    animation: loading 1.2s infinite;
+}
+
+/* ANIMACION SKELETON */
+@keyframes loading {
+    0% {
+        background-position: 200% 0;
+    }
+    100% {
+        background-position: -200% 0;
+    }
+}

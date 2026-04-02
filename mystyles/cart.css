@@ -1,0 +1,214 @@
+/* CART PANEL */
+/* contenedor principal del panel del carrito */
+.cartPanel {
+    position: fixed;
+    inset: 0;
+    display: none;
+    z-index: 999;
+}
+
+.cartPanel.active {
+    display: block;
+}
+
+/* CART OVERLAY */
+/* fondo oscuro detrás del carrito */
+.cartPanel__overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+}
+
+/* CART CONTENT */
+/* panel lateral donde se muestran los productos */
+.cartPanel__content {
+    position: absolute;
+    right: -400px;
+    top: 0;
+    width: 350px;
+    height: 100%;
+    background: #1a103d;
+    display: flex;
+    flex-direction: column;
+    transition: right 0.3s ease;
+}
+
+.cartPanel.active .cartPanel__content {
+    right: 0;
+}
+
+/* CART HEADER */
+/* encabezado del carrito */
+.cartPanel__header {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+/* CART ITEMS */
+/* contenedor de la lista de productos */
+.cartPanel__items {
+    flex: 1;
+    overflow-y: auto;
+    padding: 10px;
+}
+
+/* CART ITEM */
+/* tarjeta individual de producto en el carrito */
+.cartPanel__item {
+    display: flex;
+    gap: 10px;
+
+    background: #2c1a6b;
+    padding: 8px;
+    border-radius: 6px;
+    margin-bottom: 10px;
+}
+
+.cartPanel__item img {
+    width: 60px;
+    height: 80px;
+    object-fit: cover;
+}
+
+/* CART ITEM INFO */
+/* información del producto */
+.cartPanel__info {
+    flex: 1;
+}
+
+/* QUANTITY CONTROLS */
+/* botones para aumentar o disminuir cantidad */
+.cartPanel__controls {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.qtyBtn {
+    width: 24px;
+    height: 24px;
+    border: none;
+    background: #00d4a6;
+    color: #1a103d;
+    font-weight: bold;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* ITEM SUBTOTAL */
+/* precio subtotal del producto */
+.cartPanel__subtotal {
+    font-size: 0.8rem;
+    color: #ccc;
+}
+
+/* REMOVE ITEM */
+/* botón para eliminar producto del carrito */
+.cartPanel__remove {
+    margin-left: auto;
+    background: none;
+    border: none;
+    color: #ff4d6d;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.cartPanel__remove:hover {
+    transform: scale(1.2);
+}
+
+/* CART FOOTER */
+/* sección inferior con acciones de compra */
+.cartPanel__footer {
+    padding: 15px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+/* CHECKOUT BUTTON */
+/* botón para finalizar compra */
+.cartPanel__checkout {
+    width: 100%;
+    padding: 10px;
+    background: #00d4a6;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* CLEAR CART */
+/* botón para vaciar el carrito */
+.cartPanel__clear {
+    margin-top: 10px;
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 6px;
+    background: #ff4d6d;
+    color: #fff;
+    cursor: pointer;
+}
+
+.cartPanel__clear:hover {
+    background: #e63e5c;
+}
+
+/* CART ICON ANIMATION */
+/* animación cuando se agrega un producto */
+.navbar__cart.bump {
+    animation: bump 0.3s ease;
+}
+
+@keyframes bump {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.15); }
+    100% { transform: scale(1); }
+}
+
+/* vista previa del carrito */
+
+.cart-preview {
+    position: absolute;
+    top: 45px;
+    right: 0;
+    width: 260px;
+    max-height: 300px;
+    background: #1e133f;
+    border-radius: 10px;
+    padding: 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+    display: none;
+    overflow-y: auto;
+    z-index: 200;
+}
+
+/* mostrar preview al pasar el mouse */
+.navbar__cart:hover .cart-preview {
+    display: block;
+}
+
+/* item dentro del preview */
+.cart-preview__item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    padding: 6px 0;
+
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.cart-preview__item img {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    border-radius: 6px;
+}
+
+.cart-preview__title {
+    font-size: 0.8rem;
+    color: #fff;
+}

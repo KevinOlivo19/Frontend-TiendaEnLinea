@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>GameStore</title>
+
+    <!-- Configuración responsive -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Estilos principales -->
+    <link rel="stylesheet" href="mystyles/base.css" />
+    <link rel="stylesheet" href="mystyles/layout.css" />
+    <link rel="stylesheet" href="mystyles/navbar.css" />
+    <link rel="stylesheet" href="mystyles/hero.css" />
+    <link rel="stylesheet" href="mystyles/platforms.css" />
+    <link rel="stylesheet" href="mystyles/products.css" />
+    <link rel="stylesheet" href="mystyles/cart.css" />
+
+    <!-- PWA -->
+    <link rel="manifest" href="manifest.json" />
+    <meta name="theme-color" content="#ff4d6d" />
+  </head>
+
+  <body>
+    <!-- Barra de navegación -->
+    <header class="navbar">
+      <a href="index.html" class="navbar__logo">GameStore</a>
+
+      <!-- Buscador -->
+      <input
+        type="text"
+        id="search"
+        name="search"
+        class="navbar__search"
+        placeholder="Busca juegos, tarjetas y más"
+        aria-label="Buscar productos"
+      />
+
+      <!-- Enlaces y carrito -->
+      <nav class="navbar__links">
+        <a href="#" class="navbar__link">Iniciar sesión</a>
+        <a href="#" class="navbar__link">Registrarse</a>
+
+        <!-- Botón carrito -->
+        <button class="navbar__cart" type="button">
+          <svg class="navbar__cart-icon" viewBox="0 0 24 24" fill="none">
+            <path
+              d="M6 6h15l-1.5 9h-12z"
+              stroke="currentColor"
+              stroke-width="2"
+            />
+            <circle cx="9" cy="20" r="1.5" fill="currentColor" />
+            <circle cx="18" cy="20" r="1.5" fill="currentColor" />
+            <path d="M6 6l-2-2H2" stroke="currentColor" stroke-width="2" />
+          </svg>
+
+          <!-- Contador de productos -->
+          <span id="cartCount" class="navbar__cart-count">0</span>
+        </button>
+      </nav>
+    </header>
+
+    <!-- Banner principal -->
+    <section class="hero">
+      <div class="hero__content">
+        <h1 class="hero__title">Ofertas destacadas</h1>
+        <p class="hero__text">Compra juegos digitales al mejor precio</p>
+        <button id="heroBuyBtn" class="hero__button" type="button">
+          Comprar ahora
+        </button>
+      </div>
+    </section>
+
+    <!-- Filtro por plataformas -->
+    <section class="platforms">
+      <button class="platforms__item active" data-platform="all">Todos</button>
+      <button class="platforms__item" data-platform="pc">PC</button>
+      <button class="platforms__item" data-platform="xbox">Xbox</button>
+      <button class="platforms__item" data-platform="playstation">
+        PlayStation
+      </button>
+      <button class="platforms__item" data-platform="nintendo">Nintendo</button>
+    </section>
+
+    <!-- Catálogo de productos -->
+    <main class="products">
+      <h2 class="products__title">Lo que te recomendamos</h2>
+
+      <!-- Aquí JS renderiza los juegos -->
+      <div class="products__grid" id="productsGrid"></div>
+
+      <!-- Botón cargar más -->
+      <div class="products__actions">
+        <button id="loadMoreBtn" class="products__button" type="button">
+          Ver más
+        </button>
+      </div>
+    </main>
+
+    <!-- Panel lateral del carrito -->
+    <div class="cartPanel" id="cartPanel">
+      <div class="cartPanel__overlay" id="cartOverlay"></div>
+
+      <aside class="cartPanel__content">
+        <header class="cartPanel__header">
+          <h3>Tu carrito</h3>
+          <button id="closeCart" type="button">✕</button>
+        </header>
+
+        <!-- Productos añadidos -->
+        <div class="cartPanel__items" id="cartItems"></div>
+
+        <footer class="cartPanel__footer">
+          <p>Total: <span id="cartTotal">$0 MXN</span></p>
+
+          <button class="cartPanel__checkout" type="button">Comprar</button>
+
+          <button id="clearCart" class="cartPanel__clear" type="button">
+            Vaciar carrito
+          </button>
+        </footer>
+      </aside>
+    </div>
+
+    <!-- Modal de compra -->
+    <div class="modal" id="purchaseModal">
+      <div class="modal__content">
+        <p>Compra realizada con éxito 🎉</p>
+        <button id="closeModal">Cerrar</button>
+      </div>
+    </div>
+
+    <!-- Script principal -->
+    <script src="./myscripts/checkout.js"></script>
+    <script src="./myscripts/main.js"></script>
+
+    <!-- Registro del Service Worker (PWA) -->
+    <script>
+      if ("serviceWorker" in navigator) {
+        navigator.serviceWorker
+          .register("./service-worker.js")
+          .then(() => console.log("Service Worker registrado"))
+          .catch((err) => console.log("Error:", err));
+      }
+    </script>
+  </body>
+</html>

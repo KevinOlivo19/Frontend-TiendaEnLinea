@@ -1,0 +1,53 @@
+/* HERO */
+/* contenedor principal del banner */
+.hero {
+    height: 300px;
+    display: flex;
+    align-items: center;
+    padding: 30px;
+    background: url('../assets/images/estemero.jpg') center / cover no-repeat;
+}
+
+/* HERO CONTENIDO */
+/* bloque que contiene el texto y botón */
+.hero__content {
+    max-width: 400px;
+}
+
+/* HERO TITULO */
+/* título principal del banner */
+.hero__title {
+    font-size: 2rem;
+}
+
+/* HERO TEXTO */
+/* descripción debajo del título */
+.hero__text {
+    margin-top: 5px;
+}
+
+/* HERO BOTON */
+/* botón principal de acción */
+.hero__button {
+    margin-top: 10px;
+    padding: 10px 16px;
+    border: none;
+    background: #ff4d6d;
+    color: #fff;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+/* HERO RESPONSIVE */
+/* ajustes para pantallas pequeñas */
+@media (max-width: 600px) {
+    /* contenedor hero */
+    .hero {
+        height: 200px;
+        padding: 20px;
+    }
+    /* tamaño del título */
+    .hero__title {
+        font-size: 1.5rem;
+    }
+}

@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <!-- Configuración del documento -->
+    <meta charset="UTF-8" />
+    <title>GameStore - Detalle</title>
+
+    <!-- Responsive -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Estilos principales -->
+    <link rel="stylesheet" href="mystyles/base.css" />
+    <link rel="stylesheet" href="mystyles/layout.css" />
+    <link rel="stylesheet" href="mystyles/navbar.css" />
+    <link rel="stylesheet" href="mystyles/game.css" />
+    <link rel="stylesheet" href="mystyles/cart.css" />
+
+    <!-- Configuración PWA -->
+    <link rel="manifest" href="manifest.json" />
+    <meta name="theme-color" content="#ff4d6d" />
+  </head>
+
+  <body>
+    <!-- Barra de navegación -->
+    <header class="navbar">
+      <a href="./index.html" class="navbar__logo">GameStore</a>
+
+      <nav class="navbar__links">
+        <!-- Botón que abre el carrito -->
+        <button class="navbar__cart" type="button">
+          Carrito (<span id="cartCount">0</span>)
+        </button>
+      </nav>
+    </header>
+
+    <!-- Overlay del carrito -->
+    <div class="cartOverlay" id="cartOverlay"></div>
+
+    <!-- Panel lateral del carrito -->
+    <aside class="cartPanel" id="cartPanel">
+      <div class="cartPanel__header">
+        <h2>Carrito</h2>
+        <button id="closeCart">✕</button>
+      </div>
+
+      <!-- Lista de productos -->
+      <div class="cartPanel__items" id="cartItems"></div>
+
+      <div class="cartPanel__footer">
+        <p class="cartPanel__total">
+          Total: <span id="cartTotal">$0 MXN</span>
+        </p>
+
+        <button class="cartPanel__checkout">Comprar</button>
+        <button id="clearCart">Vaciar</button>
+      </div>
+    </aside>
+
+    <!-- Contenido principal del juego -->
+    <main class="game">
+      <!-- Información principal -->
+      <section class="game__left">
+        <img id="gameImage" class="game__image" alt="" />
+
+        <h1 id="gameTitle" class="game__title"></h1>
+
+        <p id="gamePlatform" class="game__platform"></p>
+
+        <!-- Descripción -->
+        <div class="game__description">
+          <h3>Descripción</h3>
+
+          <p id="gameDescription">
+            Sumérgete en una experiencia única llena de acción, exploración y
+            desafíos. Este título ofrece una jugabilidad envolvente, gráficos de
+            alta calidad y mecánicas diseñadas para mantenerte entretenido
+            durante horas. Descubre un mundo dinámico donde cada decisión cuenta
+            y enfrenta distintos retos que pondrán a prueba tus habilidades.
+            Ideal tanto para jugadores casuales como para quienes buscan una
+            experiencia más completa.
+          </p>
+        </div>
+      </section>
+
+      <!-- Reseñas y valoración -->
+      <section class="game__center">
+        <div class="game__ratingBox">
+          <h3>Valoración general</h3>
+
+          <div class="game__rating">
+            <span id="gameStars">⭐⭐⭐⭐⭐</span>
+            <span id="gameRatingValue">4.8</span>
+          </div>
+
+          <p id="gameReviewsCount">+1200 reseñas</p>
+        </div>
+
+        <!-- Comentarios -->
+        <div class="game__commentsBox">
+          <h3>Opiniones de usuarios</h3>
+
+          <div class="game__reviews">
+            <p>💬 “Muy buen juego, totalmente recomendado.”</p>
+            <p>💬 “La historia es increíble y el gameplay adictivo.”</p>
+            <p>💬 “Vale cada peso.”</p>
+            <p>💬 “Gráficos brutales y excelente rendimiento.”</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Panel de compra -->
+      <aside class="game__right">
+        <div class="game__priceBox">
+          <p id="gamePrice" class="game__price"></p>
+          <span class="game__discount">-30%</span>
+        </div>
+
+        <button id="addToCartBtn" class="game__button" type="button">
+          Agregar al carrito
+        </button>
+
+        <button id="buyNowBtn" class="game__buyNow" type="button">
+          Comprar ahora
+        </button>
+
+        <!-- Métodos de pago -->
+        <div class="game__payments">
+          <h4>Métodos de pago</h4>
+
+          <div class="game__paymentIcons">
+            <span>💳 Visa</span>
+            <span>💳 MasterCard</span>
+            <span>🅿️ PayPal</span>
+            <span>🏦 BBVA</span>
+          </div>
+        </div>
+      </aside>
+    </main>
+
+    <!-- Scripts -->
+    <script src="./myscripts/checkout.js"></script>
+    <script src="./myscripts/game.js"></script>
+
+    <!-- Registro del Service Worker -->
+    <script>
+      if ("serviceWorker" in navigator) {
+        navigator.serviceWorker
+          .register("./service-worker.js")
+          .then(() => console.log("Service Worker registrado"))
+          .catch((err) => console.log("Error:", err));
+      }
+    </script>
+  </body>
+</html>

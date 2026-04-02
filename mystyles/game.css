@@ -1,0 +1,209 @@
+/* GAME LAYOUT */
+/* estructura principal de la página del juego */
+.game {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 40px;
+    padding: 40px;
+}
+
+/* GAME LEFT */
+/* columna izquierda con imagen e información principal */
+.game__left {
+    display: flex;
+    flex-direction: column;
+}
+
+/* GAME IMAGE */
+/* imagen principal del juego */
+.game__image {
+    width: 100%;
+    max-width: 350px;
+    border-radius: 10px;
+}
+
+/* GAME TITLE */
+/* título del juego */
+.game__title {
+    margin-top: 15px;
+    font-size: 1.5rem;
+}
+
+/* GAME PLATFORM */
+/* plataforma del juego */
+.game__platform {
+    margin-top: 5px;
+    color: #00d4a6;
+    text-transform: capitalize;
+}
+
+/* GAME DESCRIPTION */
+/* sección de descripción del juego */
+.game__description {
+    margin-top: 20px;
+}
+
+.game__description h3 {
+    margin-bottom: 5px;
+}
+
+.game__description p {
+    color: #ddd;
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+/* GAME CENTER */
+/* columna central con calificación y comentarios */
+.game__center {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* GAME BOXES */
+/* cajas de rating y comentarios */
+.game__ratingBox,
+.game__commentsBox {
+    background: #2c1a6b;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.game__ratingBox h3,
+.game__commentsBox h3 {
+    margin-bottom: 10px;
+}
+
+/* GAME RATING */
+/* sistema de estrellas y puntuación */
+.game__rating {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.2rem;
+}
+
+#gameStars {
+    color: gold;
+}
+
+#gameRatingValue {
+    font-weight: bold;
+}
+
+#gameReviewsCount {
+    font-size: 0.8rem;
+    color: #bbb;
+}
+
+/* GAME REVIEWS */
+/* comentarios de usuarios */
+.game__reviews p {
+    font-size: 0.8rem;
+    margin-bottom: 10px;
+    color: #ddd;
+    line-height: 1.3;
+}
+
+/* GAME RIGHT */
+/* columna derecha con compra y precio */
+.game__right {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* GAME PRICE */
+/* sección de precio y descuento */
+.game__priceBox {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.game__price {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.game__discount {
+    background: #00d4a6;
+    color: #1a103d;
+    padding: 3px 6px;
+    border-radius: 5px;
+    font-size: 0.8rem;
+}
+
+/* ADD TO CART BUTTON */
+/* botón para agregar al carrito */
+.game__button {
+    padding: 15px;
+    width: 100%;
+
+    border: none;
+    border-radius: 8px;
+
+    background: #ff4d6d;
+    color: white;
+
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.game__button:hover {
+    transform: translateY(-2px);
+    background: #e63e5c;
+}
+
+/* BUY NOW BUTTON */
+/* botón de compra directa */
+.game__buyNow {
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+
+    background: #00d4a6;
+    color: #1a103d;
+
+    font-weight: bold;
+    cursor: pointer;
+
+    transition: all 0.2s ease;
+}
+
+.game__buyNow:hover {
+    transform: scale(1.03);
+}
+
+/* PAYMENT METHODS */
+/* métodos de pago disponibles */
+.game__payments {
+    margin-top: 10px;
+    font-size: 0.85rem;
+}
+
+.game__payments h4 {
+    margin-bottom: 5px;
+}
+
+.game__paymentIcons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.game__paymentIcons span {
+    background: rgba(255,255,255,0.05);
+    padding: 5px 8px;
+    border-radius: 6px;
+    font-size: 0.75rem;
+}
+
+/* RESPONSIVE */
+/* adaptación para pantallas pequeñas */
+@media (max-width: 1024px) {
+    .game {
+        grid-template-columns: 1fr;
+    }
+}

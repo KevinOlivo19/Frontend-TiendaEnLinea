@@ -1,0 +1,31 @@
+body {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        background: #1a1a1a;
+        color: white;
+      }
+
+      .cancel {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+      }
+
+      .cancel__box {
+        background: #2c2c2c;
+        padding: 40px;
+        border-radius: 16px;
+      }
+
+      .cancel__button {
+        margin-top: 20px;
+        background: #ff4d6d;
+        padding: 12px 20px;
+        border-radius: 8px;
+        color: white;
+        text-decoration: none;
+        display: inline-block;
+      }

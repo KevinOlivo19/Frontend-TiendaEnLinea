@@ -1,0 +1,189 @@
+/* NAVBAR */
+/* barra superior fija del sitio */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 30px;
+    background: rgba(91, 43, 224, 0.85);
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+}
+
+/* NAVBAR SCROLL */
+/* estado cuando el usuario baja la página */
+.navbar.scrolled {
+    padding: 10px 30px;
+    background: rgba(40, 20, 120, 0.95);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+}
+
+/* LOGO */
+/* enlace del logo */
+.navbar__logo {
+    text-decoration: none;
+    color: #fff;
+}
+
+/* SEARCH */
+/* barra de búsqueda */
+.navbar__search {
+    width: 40%;
+    padding: 8px 14px;
+    border-radius: 20px;
+    border: none;
+    outline: none;
+    font-size: 0.9rem;
+}
+
+/* LINKS */
+/* contenedor de links y carrito */
+.navbar__links {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* LINK INDIVIDUAL */
+.navbar__link {
+    color: #fff;
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+/* CARRITO */
+/* botón del carrito */
+.navbar__cart {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    transition: all 0.2s ease;
+
+}
+
+/* ICONO CARRITO */
+.navbar__cart-icon {
+    width: 24px;
+    height: 24px;
+
+}
+
+/* CONTADOR DEL CARRITO */
+.navbar__cart-count {
+    position: absolute;
+    top: -6px;
+    right: -8px;
+    background: #ff4d6d;
+    color: white;
+    font-size: 0.7rem;
+    font-weight: bold;
+    padding: 2px 6px;
+    border-radius: 999px;
+    min-width: 18px;
+    text-align: center;
+    box-shadow: 0 0 6px rgba(0,0,0,0.4);
+    transition: transform 0.2s ease;
+}
+
+/* CONTADOR POP */
+/* animación al agregar producto */
+.navbar__cart-count.pop {
+    animation: pop 0.25s ease;
+}
+
+/* ANIMACION POP */
+@keyframes pop {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.4); }
+    100% { transform: scale(1); }
+}
+
+/* CARRITO CON PRODUCTOS */
+.navbar__cart.has-items {
+    color: #00d4a6;
+}
+
+/* HOVER CARRITO */
+.navbar__cart:hover {
+    transform: scale(1.1);
+    color: #00d4a6;
+}
+
+/* HOVER CON PRODUCTOS */
+.navbar__cart.has-items:hover {
+    text-shadow: 0 0 8px rgba(0,212,166,0.8);
+}
+
+/* CART PREVIEW */
+/* mini panel que muestra productos del carrito */
+.cart-preview {
+    position: absolute;
+    top: 120%;
+    right: 0;
+    width: 220px;
+    max-height: 250px;
+    overflow-y: auto;
+    background: #1a103d;
+    border-radius: 8px;
+    padding: 10px;
+    display: none;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+    z-index: 1000;
+}
+
+/* MOSTRAR PREVIEW */
+.navbar__cart:hover .cart-preview {
+    display: block;
+}
+
+/* ITEM PREVIEW */
+.cart-preview__item {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 8px;
+}
+
+/* IMAGEN ITEM */
+.cart-preview__item img {
+    width: 40px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+/* INFO ITEM */
+.cart-preview__info {
+
+    font-size: 0.75rem;
+    color: #fff;
+}
+
+/* CARRITO VACIO */
+.cart-preview__empty {
+    font-size: 0.8rem;
+    color: #aaa;
+    text-align: center;
+}
+
+/* NAVBAR MOBILE */
+/* ajustes para pantallas pequeñas */
+@media (max-width: 600px) {
+    .navbar {
+        padding: 10px;
+    }
+    .navbar__search {
+        display: none;
+    }
+}

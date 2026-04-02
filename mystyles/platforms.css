@@ -1,0 +1,85 @@
+/* PLATFORMS */
+/* contenedor de los filtros de plataforma */
+.platforms {
+    display: flex;
+    width: 100%;
+    padding: 8px 10px;
+    background: #2a1a5e;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+/* PLATFORM ITEM */
+/* botón individual de plataforma */
+.platforms__item {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 6px;
+    padding: 12px 0;
+    background: rgba(255,255,255,0.05);
+    border: none;
+    border-radius: 10px;
+    color: #ccc;
+    font-size: 0.95rem;
+    font-weight: 500;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.2s ease;
+}
+
+/* PLATFORM HOVER */
+/* efecto al pasar el mouse */
+.platforms__item:hover {
+    background: rgba(255,255,255,0.1);
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+/* PLATFORM ACTIVO */
+/* estilo cuando la plataforma está seleccionada */
+.platforms__item.active {
+    background: #00d4a6;
+    color: #1a103d;
+    font-weight: 600;
+    box-shadow: 0 4px 15px rgba(0, 212, 166, 0.35);
+}
+
+/* PLATFORM LINEA */
+/* línea decorativa inferior */
+.platforms__item::after {
+    content: "";
+    position: absolute;
+    bottom: -4px;
+    left: 50%;
+    width: 0%;
+    height: 2px;
+    background: #00d4a6;
+    transform: translateX(-50%);
+    transition: width 0.25s ease;
+
+}
+
+/* LINEA HOVER */
+.platforms__item:hover::after {
+    width: 40%;
+}
+
+/* LINEA ACTIVA */
+.platforms__item.active::after {
+    width: 60%;
+}
+
+/* PLATFORMS RESPONSIVE */
+/* ajustes para dispositivos móviles */
+@media (max-width: 600px) {
+    .platforms {
+        overflow-x: auto;
+        gap: 8px;
+    }
+    .platforms__item {
+        flex: none;
+        min-width: 90px;
+
+    }
+}
