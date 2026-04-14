@@ -18,7 +18,7 @@ function loadCart() {
 
 // base de datos de juegos
 const games = [
-    { title: "Hollow Knight Delux edition", platform: "pc", price: 27, image: "assets/images/Jolounai.jpg" },
+    { title: "Hollow Knight Delux edition", platform: "pc", price: 10, image: "assets/images/Jolounai.jpg" },
     { title: "Elden Ring", platform: "pc", price: 1200, image: "assets/images/Elden.jpg" },
     { title: "Left 4 Dead", platform: "pc", price: 500, image: "assets/images/Leforded.jpg" },
     { title: "Fall Out", platform: "pc", price: 800, image: "assets/images/Falau.jpg" },
